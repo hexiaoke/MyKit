@@ -1,93 +1,187 @@
-html,body{
-    background-color: #eeeeee;
+html,
+body {
+  background-color: #eeeeee;
 }
-.header{
-    width: 100%;
-    font-size: 20px;
-    line-height: 40px;
-    text-align: center;
-    height: 60px;
-    margin: auto;
-    padding: 10px 0;
-    position: relative;
-    background-color: #fff;
-    overflow: auto;
+a:hover {
+  text-decoration: none;
 }
-.menu{
-    height: 40px;
-    position: absolute;
-    left: 0;
-    top:50%;
-    margin-top:-20px;
-    display: inline-block;
-    vertical-align: middle;
-    padding: 0 10px;
+.header {
+  width: 100%;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  height: 60px;
+  margin: auto;
+  padding: 10px 0;
+  position: relative;
+  background-color: #fff;
+  overflow: auto;
 }
-.right-menu {
-    height: 40px;
-    position: absolute;
-    right: 0;
-    top:50%;
-    margin-top:-20px;
-    display: inline-block;
-    vertical-align: middle;
-    padding: 0 10px;
-}
-
 .header a.item {
-    color: rgba(0,0,0,.75);
-    padding: 3px 5px;
-    margin: 10px 2px;
-    text-align: center;
-    font-size: 14px;
+  color: rgba(0, 0, 0, 0.75);
+  padding: 3px 5px;
+  margin: 10px 10px;
+  text-align: center;
+  font-size: 14px;
 }
 .header a.item:hover {
-    color: #00a8f3;
-    text-decoration: none;
+  color: #00a8f3;
+}
+.menu {
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  margin-top: -20px;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 10px;
+  left: 0;
+}
+.right-menu {
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  margin-top: -20px;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 10px;
+  left: 0;
+  fight: 0;
 }
 .menu-register {
-    width: 80px;
-    height: 40px;
-    position: absolute;
-    right: 105px;
-    top:50%;
-    margin-top:-20px;
-    text-align: center;
-    display: inline-block;
-    vertical-align: middle;
-    padding: 0 10px;
-    margin-left: 15px;
-    background-color: #323A45;
-    color: #fff;
+  width: 80px;
+  height: 40px;
+  position: absolute;
+  right: 105px;
+  top: 50%;
+  margin-top: -20px;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 10px;
+  margin-left: 15px;
+  background-color: #323A45;
+  color: #fff;
 }
 .menu-register a {
-    text-decoration: none;
-    color: #fff;
+  color: #fff;
 }
 .menu-login {
-    width: 80px;
-    height: 40px;
-    position: absolute;
-    right: 10px;
-    top:50%;
-    margin-top:-20px;
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 15px;
-    border-color:#eeeeee;
-    background-color: #fff;
-    color:  rgba(0,0,0,.75);
+  width: 80px;
+  height: 40px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -20px;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 10px;
+  margin-left: 15px;
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.75);
+  border-color: #eeeeee;
 }
-.menu-login a{
-    text-decoration: none;
-    color:  rgba(0,0,0,.75);
+.menu-login a {
+  color: rgba(0, 0, 0, 0.75);
 }
-
 .vertical-line {
-    position: absolute;
-    top: 0;
-    right: 210px;
-    margin-top: 20px;
-    height: 20px;
-    border-left: 1px solid rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0;
+  right: 210px;
+  margin-top: 20px;
+  height: 20px;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+}
+.logo {
+  position: absolute;
+  top: 50%;
+  margin-top: -20px;
+  right: 215px;
+  height: 40px;
+}
+/*应用暂时不做屏幕宽度低于480px的响应式处理*/
+.login {
+  position: absolute;
+  z-index: 1001;
+  width: 480px;
+  height: 380px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  margin-top: -190px;
+  margin-left: -240px;
+  padding: 30px 40px 40px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.register {
+  position: absolute;
+  z-index: 1001;
+  width: 480px;
+  height: 480px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  margin-top: -240px;
+  margin-left: -240px;
+  padding: 30px 40px 40px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.login-title {
+  width: 400px;
+  margin: 0 0 30px;
+  font-size: 25px;
+  font-weight: 400;
+  text-align: center;
+  color: #323a45;
+}
+.login-input,
+.register-input {
+  height: 48px;
+  width: 400px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border: 1px solid rgba(50, 58, 69, 0.2);
+  border-radius: 5px;
+}
+.login-check {
+  margin-bottom: 15px;
+  color: rgba(0, 0, 0, 0.6);
+  overflow: auto;
+  font-size: 18px;
+}
+.login-check a {
+  color: rgba(0, 0, 0, 0.6);
+  float: right;
+}
+.checkbox {
+  float: left;
+  display: inline-block;
+  text-align: center;
+  outline: 0;
+  vertical-align: middle;
+}
+.checkbox input {
+  width: 15px;
+  height: 15px;
+}
+.login-btn,
+.register-btn {
+  width: 400px;
+  height: 48px;
+  color: #fff;
+  font-size: 24px;
+  border-radius: 24px;
+}
+.bottom-link {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 18px;
+}
+.bottom-link a {
+  color: rgba(0, 0, 0, 0.6);
 }

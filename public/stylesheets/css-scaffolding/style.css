@@ -1,3 +1,4 @@
+/*to reset and offer some components(some from bootstrap)*/
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -43,6 +44,7 @@ a {
 a:active,
 a:hover {
   outline: 0;
+  text-decoration: none;
 }
 abbr[title] {
   border-bottom: 1px dotted;
@@ -112,6 +114,7 @@ textarea {
 }
 button {
   overflow: visible;
+  outline: none;
 }
 button,
 select {
