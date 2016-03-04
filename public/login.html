@@ -1,8 +1,14 @@
 <section class="login">
     <h2 class="login-title">用户登陆</h2>
-    <form>
-        <input placeholder="用户名" class="login-input">
-        <input placeholder="密码" class="login-input">
+    <form name="login_form" novalidate>
+        <div class="account-input">
+            <input placeholder="用户名" class="login-input">
+        </div>
+        <div class="account-input">
+            <div class="account-input" >
+                <input placeholder="密码" type="password" name="password" ng-minlength="6" class="login-input" required>
+            </div>
+        </div>
     </form>
     <div class="login-check">
         <div class="checkbox">

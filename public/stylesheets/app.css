@@ -2,6 +2,7 @@ html,
 body {
   background-color: #eeeeee;
 }
+a:active,
 a:hover {
   text-decoration: none;
 }
@@ -56,34 +57,32 @@ a:hover {
   top: 50%;
   margin-top: -20px;
   text-align: center;
-  display: inline-block;
-  vertical-align: middle;
   padding: 0 10px;
   margin-left: 15px;
   background-color: #323A45;
   color: #fff;
+  display: inline-block;
+  line-height: 40px;
 }
-.menu-register a {
+.menu-register:hover {
+  text-decoration: none;
   color: #fff;
 }
 .menu-login {
   width: 80px;
   height: 40px;
   position: absolute;
+  line-height: 40px;
   right: 10px;
   top: 50%;
   margin-top: -20px;
   text-align: center;
   display: inline-block;
-  vertical-align: middle;
   padding: 0 10px;
   margin-left: 15px;
   background-color: #fff;
   color: rgba(0, 0, 0, 0.75);
   border-color: #eeeeee;
-}
-.menu-login a {
-  color: rgba(0, 0, 0, 0.75);
 }
 .vertical-line {
   position: absolute;
@@ -102,29 +101,19 @@ a:hover {
 }
 /*应用暂时不做屏幕宽度低于480px的响应式处理*/
 .login {
-  position: absolute;
+  position: relative;
   z-index: 1001;
   width: 480px;
-  height: 380px;
-  text-align: center;
-  top: 50%;
-  left: 50%;
-  margin-top: -190px;
-  margin-left: -240px;
+  margin: 50px auto;
   padding: 30px 40px 40px;
   border-radius: 10px;
   background-color: #fff;
 }
 .register {
-  position: absolute;
+  position: relative;
   z-index: 1001;
   width: 480px;
-  height: 480px;
-  text-align: center;
-  top: 50%;
-  left: 50%;
-  margin-top: -240px;
-  margin-left: -240px;
+  margin: 50px auto;
   padding: 30px 40px 40px;
   border-radius: 10px;
   background-color: #fff;
@@ -143,7 +132,6 @@ a:hover {
   width: 400px;
   padding-left: 15px;
   padding-right: 15px;
-  margin-bottom: 15px;
   font-size: 16px;
   border: 1px solid rgba(50, 58, 69, 0.2);
   border-radius: 5px;
@@ -184,4 +172,33 @@ a:hover {
 }
 .bottom-link a {
   color: rgba(0, 0, 0, 0.6);
+}
+.account-input {
+  position: relative;
+  height: 68px;
+}
+span.error {
+  white-space: nowrap;
+  display: inline;
+  position: absolute;
+  left: 410px;
+  top: 7px;
+  padding: 7px 10px;
+  background-color: #d95c5c;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+}
+span.error:before {
+  right: 100%;
+  top: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-right-color: #d95c5c;
+  border-width: 5px;
+  margin-top: -5px;
 }

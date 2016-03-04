@@ -1,10 +1,25 @@
 <section class="register">
     <h2 class="login-title">用户注册</h2>
-    <form>
-        <input placeholder="用户名" class="register-input">
-        <input placeholder="邮箱" class="register-input">
-        <input placeholder="密码" class="register-input">
-        <input placeholder="确认密码" class="register-input">
+    <form name="signup_form" novalidate>
+        <div class="account-input">
+            <input placeholder="用户名" type="text" name="name" ng-model="signup.name" ng-minlength="3" ng-maxlength="20" class="register-input" required>
+            <span class="error" ng-show="signup_form.name.$error.required">用户名不能为空</span>
+            <span class="error" ng-show="signup_form.name.$error.minlength">用户名至少为三个字符</span>
+            <span class="error" ng-show="signup_form.name.$error.maxlength">用户名至多为二十个字符</span>
+        </div>
+        <div class="account-input">
+            <input placeholder="邮箱" class="register-input" type="email" name="email" ng-model="signup.email" required>
+            <span ng-show="signup_form.email.$error.email" class="error">邮件格式错误</span>
+        </div>
+        <div class="account-input" >
+            <input placeholder="密码" type="password" name="password" ng-model="signup.password" ng-minlength="6" class="register-input" required>
+            <span class="error" ng-show="signup_form.password.$error.required">密码不能为空</span>
+            <span class="error" ng-show="signup_form.password.$error.minlength">密码不能少于6位</span>
+        </div>
+        <div class="account-input">
+            <input placeholder="确认密码" type="password" class="register-input" name="repeatPassword" ng-model="signup.repeatPassword" repeat="password" required>
+            <span class="error" ng-show="signup_form.password.$valid && !(signup.password==signup.repeatPassword)">两次输入密码不一致</span>
+        </div>
     </form>
 
     <button class="btn  register-btn">注册</button>

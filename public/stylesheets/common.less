@@ -11,37 +11,32 @@
   width: (@length*4);
   height:(@length*2);
   position: absolute;
+  display: inline-block;
+  line-height: 40px;
   right: @right;
   top:50%;
   margin-top:-(@margin-length*2);
   text-align: center;
   display: inline-block;
-  vertical-align: middle;
   padding: 0 @padding-length;
   margin-left:(@margin-length*1.5);
   background-color: @background;
   color: @color;
 }
 .index-form(@widith,@height){
-  position: absolute;
+  position: relative;
   z-index: 1001;
   width: @widith;
-  height:@height;
-  text-align: center;
-  top:50%;
-  left:50%;
-  margin-top: -(@height/2);
-  margin-left: -(@widith/2);
-  padding: (@padding-length*3) (@padding-length*4) (@padding-length*4);
+  margin: 50px auto;
+  padding: 30px 40px 40px;
   border-radius: 10px;
-  background-color: #fff;
+  background-color: #fff
 }
 .index-input(){
   height:  (@length*2.4);
   width: (@length*20);
   padding-left: (@padding-length*1.5);
   padding-right: (@padding-length*1.5);
-  margin-bottom: (@margin-length*1.5);
   font-size: 16px;
   border: @border;
   border-radius:5px;

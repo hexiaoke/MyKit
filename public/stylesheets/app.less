@@ -5,6 +5,7 @@
 html,body{
   background-color: #eeeeee;
 }
+a:active,
 a:hover{
   text-decoration: none;
 }
@@ -41,16 +42,17 @@ a:hover{
 }
 .menu-register{
   .menu-btn(105px,#323A45,#fff);
-  a{
-    color: #fff;
+  display: inline-block;
+  line-height: 40px;
+  &:hover{
+    text-decoration: none;
+   color: #fff;
   }
 }
 .menu-login{
   .menu-btn(10px, #fff,@menu-color);
   border-color:#eeeeee;
-  a{
-    color: @menu-color;
-  }
+
 }
 .vertical-line {
   position: absolute;
@@ -120,3 +122,31 @@ a:hover{
     color: @a-color;
   }
 }
+.account-input {
+  position: relative;
+  height: 68px;
+}
+span.error {
+  white-space: nowrap;
+  display:inline;
+  position: absolute;
+  left: 410px;
+  top: 7px;
+  padding: 7px 10px;
+  background-color: #d95c5c;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+}
+span.error:before {
+  right: 100%;
+  top: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-right-color: #d95c5c;
+  border-width: 5px;
+  margin-top: -5px;}
