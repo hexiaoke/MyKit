@@ -1,0 +1,152 @@
+//variables
+@import "variables.less";
+@import "common.less";
+
+html,body{
+  background-color: #eeeeee;
+}
+a:active,
+a:hover{
+  text-decoration: none;
+}
+.header{
+  width: 100%;
+  font-size: (@font-size-base*1.25);
+  line-height: (@length*2);
+  text-align: center;
+  height: (@length*3);
+  margin: auto;
+  padding: @padding-length 0;
+  position: relative;
+  background-color: #fff;
+  overflow: auto;
+  a.item {
+    color: rgba(0,0,0,.75);
+    padding: (@padding-length*0.3) (@padding-length*0.5);
+    margin: @margin-length @margin-length;
+    text-align: center;
+    font-size: (@font-size-base*0.875);
+      &:hover{
+        color: #00a8f3;
+      }
+  }
+}
+
+.menu{
+  .menu;
+  left: 0;
+}
+.right-menu{
+  .menu;
+  fight:0;
+}
+.menu-register{
+  .menu-btn(105px,#323A45,#fff);
+  display: inline-block;
+  line-height: 40px;
+  &:hover{
+    text-decoration: none;
+   color: #fff;
+  }
+}
+.menu-login{
+  .menu-btn(10px, #fff,@menu-color);
+  border-color:#eeeeee;
+
+}
+.vertical-line {
+  position: absolute;
+  top: 0;
+  right: (@length*10.5);
+  margin-top: (@margin-length*2);
+  height: @length;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+}
+.logo {
+  position: absolute;
+  top: 50%;
+  margin-top: -(@margin-length*2);
+  right:  (@length*10.75);
+  height:  (@length*2);
+}
+/*应用暂时不做屏幕宽度低于480px的响应式处理*/
+.login{
+  .index-form(480px,380px);
+}
+.register{
+  .index-form(480px,480px);
+}
+.login-title{
+  width:  (@length*20);
+  margin: 0 0 (@margin-length*3);
+  font-size: 25px;
+  font-weight: 400;
+  text-align: center;
+  color: #323a45;
+}
+.login-input,.register-input {
+  .index-input;
+}
+.login-check{
+  margin-bottom: (@margin-length*1.5);
+  color: @a-color;
+  overflow: auto;
+  font-size: 18px;
+  a{
+    color: @a-color;
+    float: right;}
+}
+.checkbox{
+  float: left;
+  display: inline-block;
+  text-align: center;
+  outline: 0;
+  vertical-align: middle;
+  input{
+    width: (@length*0.75);
+    height: (@length*0.75);
+  }
+}
+.login-btn,.register-btn {
+  width: (@length*20);
+  height:(@length*2.4);
+  color: #fff;
+  font-size: 24px;
+  border-radius: 24px;
+}
+.bottom-link{
+  margin-top: (@margin-length*1.5);
+  text-align: center;
+  font-size: 18px;
+  a{
+    color: @a-color;
+  }
+}
+.account-input {
+  position: relative;
+  height: 68px;
+}
+span.error {
+  white-space: nowrap;
+  display:inline;
+  position: absolute;
+  left: 410px;
+  top: 7px;
+  padding: 7px 10px;
+  background-color: #d95c5c;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+}
+span.error:before {
+  right: 100%;
+  top: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-right-color: #d95c5c;
+  border-width: 5px;
+  margin-top: -5px;}
