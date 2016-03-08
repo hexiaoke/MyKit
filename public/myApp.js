@@ -24,6 +24,6 @@
                     url:'/register',
                     templateUrl:'app/view/register.html'
                 })
-            $urlRouterProvider.otherwise('/index/mykit');
+            $urlRouterProvider.otherwise('/index/mykit/login');
         }]);
 })();
