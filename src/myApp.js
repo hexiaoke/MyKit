@@ -4,7 +4,7 @@
 (function(){
     'use strict';
     angular
-        .module('MyKit',['ui.router'])
+        .module('MyKit',['ui.router','MyKit.register','MyKit.login','MyKit.container'])
         .config(['$stateProvider', '$urlRouterProvider',function($stateProvider,$urlRouterProvider){
             $stateProvider
                 .state('index',{
@@ -18,12 +18,20 @@
                 })
                 .state('index.mykit.login',{
                     url:'/login',
-                    templateUrl:'app/view/login.html'
+                    templateUrl:'app/view/login/login.html',
+                    controller:'loginController'
                 })
                 .state('index.mykit.register',{
                     url:'/register',
-                    templateUrl:'app/view/register.html'
+                    templateUrl:'app/view/register/register.html',
+                    controller:'registerController'
                 })
+                .state('index.container',{
+                    url:'/container',
+                    templateUrl:'app/titlebar/container.html',
+                    controller:'containerController'
+                });
+
             $urlRouterProvider.otherwise('/index/mykit/login');
         }]);
 })();

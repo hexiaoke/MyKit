@@ -14,7 +14,6 @@ figcaption,
 figure,
 footer,
 header,
-hgroup,
 main,
 menu,
 nav,
@@ -266,6 +265,10 @@ hr {
   color: #333;
   background-color: #fff;
   border-color: #ccc;
+}
+.btn-checked {
+  background-color: #323a45;
+  color: #fff;
 }
 .btn-primary {
   color: #fff;
