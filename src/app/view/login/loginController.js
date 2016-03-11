@@ -12,10 +12,12 @@
                 name:'',
                 password:''
             };
+            //待解决的问题
             $scope.islogin=function(){
                 var d=$q.defer();
                 $http.get('/islogin',$scope.user)
                     .success(function(data,status){
+                        //回头改为响应码
                         if(data ==='ok') {
                             console.log('front ok');
                             //$state.go('index.mykit.register');
