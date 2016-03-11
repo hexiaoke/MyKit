@@ -1,5 +1,7 @@
 # MyKit
 MyKit by MANE
+
+css的书写顺序还没来得及优化，待主页开发UI时一同优化
 #### 运行条件
 
 node5.0+、mongodb
