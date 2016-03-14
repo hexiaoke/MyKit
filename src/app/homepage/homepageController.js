@@ -4,12 +4,12 @@
 (function(){
     "use strict";
     angular
-        .module('MyKit.container',[])
-        .controller('containerController',containerController);
+        .module('MyKit.homepage',[])
+        .controller('homepageController',homepageController);
 
-    containerController.$injector=['$scope','$state','$http','$q'];
-
-    function containerController($scope,$state,$http,$q){
+    homepageController.$injector=['$scope','$state','$http','$q','loginServices'];
+    function homepageController($scope,$state,$http,$q,loginServices){
+        loginServices.islogin();
         $scope.logout=function(){
             var d=$q.defer();
             $http.get('/logout',$scope.user)
