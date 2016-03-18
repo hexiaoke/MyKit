@@ -1,0 +1,23 @@
+<div class="inner-menu">
+    <header class="item-title">
+        通讯录
+        <article>你可以在一台电脑上录入某个联系人的信息，然后在手机或者另外一台电脑中读取或修改该信息。</article>
+    </header>
+    <a class="inner-item" ui-sref='index.user.contactlist.all' ui-sref-active="active" >
+        <i class="  icon-group icon-large" ></i>
+        <span>所有联系人</span>
+        <span>(0)</span>
+    </a>
+    <a class="inner-item" ui-sref='index.user.contactlist.special' ui-sref-active="active">
+        <i class=" icon-heart icon-large"></i>
+        <span>特别关注</span>
+        <span>(0)</span>
+    </a>
+    <a class="inner-item" ui-sref='index.user.contactlist.create' ui-sref-active="active">
+        <i class="  icon-edit icon-large"></i>
+        <span>添加新的联系人</span>
+    </a>
+</div>
+<div class="inner-container">
+    <div ui-view></div>
+</div>

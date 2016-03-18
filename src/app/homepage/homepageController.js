@@ -10,6 +10,12 @@
     homepageController.$injector=['$scope','$state','$http','$q','loginServices'];
     function homepageController($scope,$state,$http,$q,loginServices){
         loginServices.islogin();
+        $scope.left_menu='';
+        $scope.clickLink=function(data){
+            console.log(data);
+            $scope.left_menu=data;
+
+        },
         $scope.logout=function(){
             var d=$q.defer();
             $http.get('/logout',$scope.user)

@@ -27,15 +27,83 @@
                     controller:'registerController'
                 })
                 .state('index.user',{
+                    abstract:true,
                     url:'/user',
                     templateUrl:'app/homepage/homepage.html',
                     controller:'homepageController'
                 })
+                .state('index.user.welcome',{
+                    url:'',
+                    template:'<p>hello</p>'
+                })
                 .state('index.user.todolist',{
                     url:'/todolist',
+                    abstract:true,
                     templateUrl:'app/view/todolist/todoList.html'
-            });
+                })
+                .state('index.user.todolist.all',{
+                    url:'/all',
+                    templateUrl:'app/view/todolist/todoAll.html'
+                })
+                .state('index.user.todolist.create',{
+                    url:'/create',
+                    templateUrl:'app/view/todolist/todoCreate.html'
+                })
+                .state('index.user.todolist.completed',{
+                    url:'/completed',
+                    templateUrl:'app/view/todolist/todoComplete.html'
+                })
+                .state('index.user.todolist.planed',{
+                    url:'/planed',
+                    templateUrl:'app/view/todolist/todoPlan.html'
+                })
+                .state('index.user.contactlist',{
+                    url:'/contactlist',
+                    abstract:true,
+                    templateUrl:'app/view/contactlist/contactList.html'
+                })
+                .state('index.user.contactlist.all',{
+                    url:'/all',
+                    templateUrl:'app/view/contactlist/contactAll.html'
+                })
+                .state('index.user.contactlist.create',{
+                    url:'/create',
+                    templateUrl:'app/view/contactlist/contactCreate.html'
+                })
+                .state('index.user.contactlist.special',{
+                    url:'/special',
+                    templateUrl:'app/view/contactlist/contactSpecial.html'
+                })
+                .state('index.user.financial',{
+                    url:'/financial',
+                    abstract:true,
+                    templateUrl:'app/view/financial/financial.html'
+                })
+                .state('index.user.financial.all',{
+                    url:'/all',
+                    templateUrl:'app/view/financial/financialAll.html'
+                })
+                .state('index.user.financial.create',{
+                    url:'/create',
+                    templateUrl:'app/view/financial/financialCreate.html'
+                })
+                .state('index.user.financial.in',{
+                    url:'/in',
+                    templateUrl:'app/view/financial/financialIn.html'
+                })
+                .state('index.user.financial.out',{
+                    url:'/out',
+                    templateUrl:'app/view/financial/financialOut.html'
+                })
+                .state('index.user.account',{
+                    url:'/account',
+                    templateUrl:'app/view/account/account.html'
+                });
+
             $urlRouterProvider.when('','/mykit/login');
+            $urlRouterProvider.when('/todolist', [function() {
+                console.log('user/todolist')
+            }]);
 
 
         }]);

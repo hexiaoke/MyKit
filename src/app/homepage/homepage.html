@@ -1,34 +1,38 @@
 <div class="header">
+    <div class="logo"> <i class=" icon-h-sign icon-2x "></i></div>
     <div class="menu">
+        <a class="item" ui-sref='index.user.todolist.all'>事务管理</a>
+        <a class="item" ui-sref='index.user.financial.all'>财务管理</a>
+        <a class="item" ui-sref='index.user.contactlist.all'>通讯录</a>
         <a class="item">关于</a>
         <a class="item">博客</a>
         <a class="item">帮助</a>
     </div>
-    <h2 class="logo">MyKit</h2>
+    <h2 class="logo-name">MyKit</h2>
     <span class="vertical-line"></span>
     <a class="btn  btn-rounded menu-login menu-btn" ng-click="logout()">登出</a>
 </div>
 <div class="siderbar" id="context-menu">
     <a class="menu-item">头像</a>
-    <a class="menu-item" href="#/user/todolist">
+    <a class="menu-item" ui-sref='index.user.todolist.all' ng-click="clickLink('all')" ng-class="{active: left_menu === 'all'}">
     <i class=" icon-list-alt icon-large"></i>
     <span class="menu-title">
         事务管理
     </span>
     </a>
-    <a class="menu-item">
+    <a class="menu-item" ui-sref='index.user.financial.all' ng-click="clickLink('financial')" ng-class="{active: left_menu === 'financial'}">
         <i class="  icon-bar-chart icon-large"></i>
     <span class="menu-title">
         财务管理
     </span>
     </a>
-    <a class="menu-item">
-        <i class="  icon-book icon-large"></i>
+    <a class="menu-item" ui-sref='index.user.contactlist.all' ng-click="clickLink('contactlist')" ng-class="{active: left_menu === 'contactlist'}">
+        <i class="   icon-group icon-large"></i>
         <span class="menu-title">
         通讯录
     </span>
     </a>
-    <a class="menu-item">
+    <a class="menu-item" ui-sref='index.user.account' ng-click="clickLink('account')" ng-class="{active: left_menu === 'account'}">
         <i class="  icon-dashboard icon-large"></i>
     <span class="menu-title">
         账户管理

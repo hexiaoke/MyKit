@@ -2,12 +2,9 @@ html,
 body {
   width: 100%;
   height: 100%;
+  overflow: auto;
   font-family: '微软雅黑', 'Helvetica Neue', sans-serif, SimHei;
-  background-color: #eeeeee;
-}
-a:active,
-a:hover {
-  text-decoration: none;
+  background-color: #F7F6F2;
 }
 .header {
   width: 100%;
@@ -19,6 +16,7 @@ a:hover {
   padding: 10px 0;
   position: relative;
   background-color: #fff;
+  border-bottom: 1px solid #CCC;
   overflow: auto;
 }
 .header a.item {
@@ -38,8 +36,8 @@ a:hover {
   margin-top: -20px;
   display: inline-block;
   vertical-align: middle;
-  padding: 0 10px;
-  left: 0px;
+  padding: 0;
+  left: 70px;
 }
 .right-menu {
   height: 40px;
@@ -48,11 +46,12 @@ a:hover {
   margin-top: -20px;
   display: inline-block;
   vertical-align: middle;
-  padding: 0 10px;
-  left: 0px;
+  padding: 0;
+  left: 70px;
   fight: 0;
 }
 .menu-register {
+  text-decoration: none;
   width: 80px;
   height: 40px;
   position: absolute;
@@ -67,8 +66,9 @@ a:hover {
   display: inline-block;
   line-height: 40px;
 }
-.menu-register:hover {
-  text-decoration: none;
+.menu-register:hover,
+.menu-register:visited,
+.menu-register:focus {
   color: #fff;
 }
 .menu-login {
@@ -96,6 +96,13 @@ a:hover {
   border-left: 1px solid rgba(0, 0, 0, 0.2);
 }
 .logo {
+  float: left;
+  display: inline-block;
+  width: 80px;
+  height: 60px;
+  text-align: center;
+}
+.logo-name {
   position: absolute;
   top: 50%;
   margin-top: -20px;
@@ -234,9 +241,121 @@ span.error:before {
   height: 20px;
   line-height: 20px;
 }
+#context-menu .active {
+  background-color: rgba(255, 255, 255, 0.15);
+}
 #container {
   width: 100%;
   height: 100%;
-  overflow-y: auto;
   margin-left: 80px;
+}
+.inner-menu {
+  position: absolute;
+  width: 200px;
+  height: 100%;
+  overflow-y: auto;
+  background-color: #F7F6F2;
+  border-right: 1px solid #CCC;
+}
+.inner-menu article {
+  margin: 5px 0;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #666;
+  word-wrap: break-word;
+  word-break: normal;
+}
+.inner-menu a {
+  cursor: pointer;
+}
+.inner-menu .active {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+.item-create {
+  display: block;
+  width: 100%;
+  height: 36px;
+  padding: 3px 25px;
+  color: #F7F6F2;
+}
+.item-create .btn {
+  height: 30px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 12px;
+}
+.item-create:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+.inner-container {
+  position: absolute;
+  margin-left: 200px;
+  padding: 30px 60px 0;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #F7F6F2;
+}
+.item-title {
+  font-size: 18px;
+  padding: 30px 25px 10px;
+}
+.inner-item {
+  display: inline-block;
+  padding: 10px 25px;
+  margin-top: 5px;
+  width: 100%;
+  height: 36px;
+  line-height: 16px;
+  font-size: 14px;
+  color: #666;
+  white-space: nowrap;
+}
+.inner-item:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+.inner-item span {
+  margin-left: 5px;
+}
+/* todolist-create*/
+hr {
+  margin: 10px 0;
+}
+.create-form {
+  margin: 0;
+  padding: 10px 24px;
+  width: 800px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.create-form-title {
+  margin: 10px 0;
+  padding: 0;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.7);
+}
+.todos-create-title {
+  padding: 10px 16px;
+  width: 752px;
+  height: 40px;
+  outline: 0;
+  color: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+}
+.todos-create-content {
+  margin: 10px 0;
+  padding: 10px 16px;
+  width: 752px;
+  min-height: 180px;
+  outline: 0;
+  color: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+}
+.finish-create {
+  height: 30px;
+  text-align: center;
+  font-size: 12px;
 }

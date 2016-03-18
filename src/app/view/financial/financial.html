@@ -1,0 +1,28 @@
+<div class="inner-menu">
+    <header class="item-title">
+        财务管理
+        <article>你可以录入你的财政收入支出情况,并通过可视化的方式进行管理</article>
+    </header>
+    <a class="inner-item" ui-sref='index.user.financial.all' ui-sref-active="active" >
+        <i class=" icon-bar-chart icon-large" ></i>
+        <span>财务总览</span>
+        <span>(0)</span>
+    </a>
+    <a class="inner-item" ui-sref='index.user.financial.in' ui-sref-active="active">
+        <i class="  icon-signin icon-large"></i>
+        <span>收入</span>
+        <span>(0)</span>
+    </a>
+    <a class="inner-item" ui-sref='index.user.financial.out' ui-sref-active="active">
+        <i class="   icon-signout icon-large"></i>
+        <span>支出</span>
+        <span>(0)</span>
+    </a>
+    <a class="inner-item" ui-sref='index.user.financial.create' ui-sref-active="active">
+        <i class="  icon-edit icon-large"></i>
+        <span>创建</span>
+    </a>
+</div>
+<div class="inner-container">
+    <div ui-view></div>
+</div>

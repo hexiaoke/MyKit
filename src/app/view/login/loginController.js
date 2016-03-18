@@ -20,7 +20,7 @@
                         if(data =='ok') {
                             console.log('front ok');
                             //$state.go('index.mykit.register');
-                            $state.go('index.user');
+                            $state.go('index.user.welcome');
                             //$location.path('/index/mykit/register');
                         }
                         if(data =='no') {

@@ -1,3 +1,27 @@
-<div>
-    todolist
+<div class="inner-menu">
+    <header class="item-title">
+        事务管理
+        <article>按已完成的,进行中的事务进行分类管理</article>
+    </header>
+    <a class="item-create" ui-sref='index.user.todolist.create' ui-sref-active="active">
+        <button class="btn btn-success btn-rounded">创建事项</button>
+    </a>
+    <a class="inner-item" ui-sref='index.user.todolist.all' ui-sref-active="active" >
+        <i class=" icon-list-alt icon-large" ></i>
+        <span>所有事项</span>
+        <span>(0)</span>
+    </a>
+    <a class="inner-item" ui-sref='index.user.todolist.completed' ui-sref-active="active">
+        <i class=" icon-tasks icon-large"></i>
+        <span>已完成</span>
+        <span>(0)</span>
+    </a>
+    <a class="inner-item" ui-sref='index.user.todolist.planed' ui-sref-active="active">
+        <i class="  icon-edit icon-large"></i>
+        <span>正在进行</span>
+        <span>(0)</span>
+    </a>
+</div>
+<div class="inner-container">
+<div ui-view></div>
 </div>
