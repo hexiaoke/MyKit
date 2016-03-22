@@ -15,25 +15,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/MyKit");
 // uncomment after placing your favicon in /src
 //app.use(favicon(path.join(__dirname, 'src', 'favicon.ico')));
 // models loading
-var models_path = __dirname + '/models';
-var walk = function(path) {
-  fs
-      .readdirSync(path)
-      .forEach(function(file) {
-        var newPath = path + '/' + file;
-        var stat = fs.statSync(newPath);
 
-        if (stat.isFile()) {
-          if (/(.*)\.(js|coffee)/.test(file)) {
-            require(newPath)
-          }
-        }
-        else if (stat.isDirectory()) {
-          walk(newPath)
-        }
-      })
-}
-walk(models_path);
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

@@ -1,7 +1,7 @@
 <form id="todos-create-form" class="create-form">
     <h1 class="create-form-title">创建你的事项</h1>
     <hr>
-    <input class="todos-create-title" placeholder="事项名称">
-    <textarea placeholder="事项内容(其他选项待定)" class="todos-create-content"></textarea>
-    <button class="btn btn-success btn-rounded finish-create">创建事项</button>
+    <input class="todos-create-title" placeholder="事项名称" ng-model="newTodo.title">
+    <textarea placeholder="事项内容(其他选项待定)" class="todos-create-content" ng-model="newTodo.content"></textarea>
+    <button class="btn btn-success btn-rounded finish-create" ng-click="createTodo()">创建事项</button>
 </form>

@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 var UserSchema = require('../schemas/user');
 var User = mongoose.model('User', UserSchema);
+var TodoSchema=require('../schemas/todos');
+var Todo=mongoose.model('Todo',TodoSchema);
 var router=function(app){
   app.post('/register', function (req, res) {
     var _user = req.body;
@@ -69,7 +71,18 @@ var router=function(app){
     //delete app.locals.user
 
     res.send('ok');
-  })
-}
+  });
+  app.post('/createTodo',function(req,res){
+    var todo=new Todo(req.body);
+    todo.user_id=req.session.user._id;
+    todo.save(function(err,user){
+      if(err){
+        console.log(err);
+      }
+    });
+    res.send('ok');
+  });
+};
+
 
 module.exports = router;

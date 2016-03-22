@@ -11,11 +11,6 @@ var UserSchema = new mongoose.Schema({
         type: String
     },
     password: String,
-    // 0: nomal user
-    // 1: verified user
-    // 2: professonal user
-    // >10: admin
-    // >50: super admin
     email: String,
     meta: {
         createAt: {
