@@ -2,12 +2,17 @@ html,
 body {
   width: 100%;
   height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
   font-family: '微软雅黑', 'Helvetica Neue', sans-serif, SimHei;
   background-color: #eeeeee;
 }
+#index {
+  width: 100%;
+  height: 100%;
+}
 .header {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
   width: 100%;
   font-size: 20px;
   line-height: 40px;
@@ -15,10 +20,8 @@ body {
   height: 60px;
   margin: auto;
   padding: 10px 0;
-  position: relative;
   background-color: #fff;
   border-bottom: 1px solid #CCC;
-  overflow: auto;
 }
 .header a.item {
   color: rgba(0, 0, 0, 0.75);
@@ -26,6 +29,7 @@ body {
   margin: 10px 10px;
   text-align: center;
   font-size: 14px;
+  vertical-align: top;
 }
 .header a.item:hover {
   color: #00a8f3;
@@ -37,6 +41,7 @@ body {
   margin-top: -20px;
   display: inline-block;
   vertical-align: middle;
+  line-height: 40px;
   padding: 0;
   left: 70px;
 }
@@ -47,6 +52,7 @@ body {
   margin-top: -20px;
   display: inline-block;
   vertical-align: middle;
+  line-height: 40px;
   padding: 0;
   left: 70px;
   fight: 0;
@@ -112,22 +118,30 @@ body {
 }
 /*应用暂时不做屏幕宽度低于480px的响应式处理*/
 .login {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -190px;
   z-index: 1001;
   width: 480px;
-  margin: 50px auto;
+  margin-left: -240px;
   padding: 30px 40px 40px;
   border-radius: 10px;
   background-color: #fff;
+  box-sizing: border-box;
 }
 .register {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -240px;
   z-index: 1001;
   width: 480px;
-  margin: 50px auto;
+  margin-left: -240px;
   padding: 30px 40px 40px;
   border-radius: 10px;
   background-color: #fff;
+  box-sizing: border-box;
 }
 .login-title {
   width: 400px;
@@ -215,12 +229,12 @@ span.error:before {
 }
 /* homepage */
 #context-menu {
-  position: absolute;
+  position: fixed;
+  z-index: 1000;
   top: 60px;
   left: 0;
   width: 80px;
   height: 100%;
-  overflow-y: auto;
   background-color: #333;
 }
 #context-menu .menu-item {
@@ -246,12 +260,15 @@ span.error:before {
   background-color: rgba(255, 255, 255, 0.15);
 }
 #container {
+  position: absolute;
+  padding-left: 80px;
+  padding-top: 60px;
   width: 100%;
   height: 100%;
-  margin-left: 80px;
+  box-sizing: border-box;
 }
 .inner-menu {
-  position: absolute;
+  float: left;
   width: 200px;
   height: 100%;
   overflow-y: auto;
@@ -289,12 +306,15 @@ span.error:before {
 .item-create:hover {
   background-color: rgba(0, 0, 0, 0.02);
 }
+.wrap {
+  overflow: auto;
+  height: 100%;
+}
 .inner-container {
-  position: absolute;
   margin-left: 200px;
   padding: 30px 60px 0;
-  width: 100%;
   height: 100%;
+  box-sizing: border-box;
   overflow-y: auto;
   overflow-x: hidden;
   background-color: #F7F6F2;
@@ -325,7 +345,7 @@ hr {
   margin: 10px 0;
 }
 .create-form {
-  margin: 0;
+  margin: 0 ;
   padding: 10px 24px;
   width: 800px;
   background-color: #fff;
@@ -350,6 +370,7 @@ hr {
   margin: 10px 0;
   padding: 10px 16px;
   width: 752px;
+  max-width: 752px;
   min-height: 180px;
   outline: 0;
   color: rgba(0, 0, 0, 0.7);
@@ -360,4 +381,93 @@ hr {
   height: 30px;
   text-align: center;
   font-size: 12px;
+}
+#todo-main {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid #e6e6e6;
+}
+#todo-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#todo-list li {
+  position: relative;
+  font-size: 24px;
+  background: #fff;
+  border-bottom: 1px solid #ededed;
+}
+#todo-list li:last-child {
+  border-bottom: none;
+}
+#todo-list li .toggle {
+  text-align: center;
+  width: 40px;
+  height: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 6px;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+}
+#todo-list li .toggle:after {
+  position: absolute;
+  top: 50%;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  left: 50%;
+  margin-left: -20px;
+  margin-top: -20px;
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
+}
+#todo-list li .toggle:checked:after {
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: auto;
+  left: 50%;
+  margin-left: -20px;
+  margin-top: -20px;
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
+}
+#todo-list li label {
+  white-space: pre-line;
+  word-break: break-all;
+  padding: 15px 60px 15px 15px;
+  margin-left: 45px;
+  display: block;
+  transition: color 0.4s;
+}
+#todo-list li.completed label {
+  color: #d9d9d9;
+  text-decoration: line-through;
+}
+#todo-list li .destroy {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  margin-top: -20px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  vertical-align: top;
+  color: #cc9a9a;
+  background: none;
+  font-size: 30px;
+  border: 0;
+  transition: color 0.2s ease-out;
+}
+#todo-list li .destroy:hover {
+  color: #af5b5e;
+}
+#todo-list li .destroy:after {
+  content: '×';
+}
+#todo-list li:hover .destroy {
+  display: block;
 }

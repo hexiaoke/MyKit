@@ -1,10 +1,12 @@
 .menu(){
+  display: inline-block;
   height: (@length*2);
   position: absolute;
   top:50%;
   margin-top:-(@margin-length*2);
   display: inline-block;
   vertical-align: middle;
+  line-height: @length*2;
   padding:0;
 }
 .menu-btn(@right,@background,@color){
@@ -24,15 +26,20 @@
   color: @color;
 }
 .index-form(@widith,@height){
-  position: relative;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  margin-top: -(@height/2);
   z-index: 1001;
   width: @widith;
-  margin: 50px auto;
+margin-left: -(@widith/2);
   padding: 30px 40px 40px;
   border-radius: 10px;
-  background-color: #fff
+  background-color: #fff;
+  box-sizing: border-box;
 }
 .index-input(){
+
   height:  (@length*2.4);
   width: (@length*20);
   padding-left: (@padding-length*1.5);
