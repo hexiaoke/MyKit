@@ -91,6 +91,18 @@ var router=function(app){
     });
     res.send('ok');
   });
+ app.post('/completeTodo',function(req,res){
+   var todo=req.body;
+   Todo.update({_id:todo._id},{$set:{completed:todo.completed}},function(err){
+   if (err){
+     console.log(err);
+   }
+     else {
+     console.log('ok');
+   }
+   });
+
+ });
 };
 
 

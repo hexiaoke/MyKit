@@ -11,15 +11,15 @@
         <span>所有事项</span>
         <span>({{todos.length}})</span>
     </a>
-    <a class="inner-item" ui-sref='index.user.todolist.completed' ui-sref-active="active">
+    <a class="inner-item" ui-sref='index.user.todolist.completed' ui-sref-active="active" ng-click="changeStatus('completed')" >
         <i class=" icon-tasks icon-large"></i>
         <span>已完成</span>
-        <span>(0)</span>
+        <span>({{completedCount}})</span>
     </a>
-    <a class="inner-item" ui-sref='index.user.todolist.planed' ui-sref-active="active">
+    <a class="inner-item" ui-sref='index.user.todolist.planed' ui-sref-active="active" ng-click="changeStatus('planed')">
         <i class="  icon-edit icon-large"></i>
         <span>正在进行</span>
-        <span>(0)</span>
+        <span>({{remainingCount}})</span>
     </a>
 </div>
 <div class="inner-container">

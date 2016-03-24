@@ -7,12 +7,11 @@
         .module('MyKit.homepage',[])
         .controller('homepageController',homepageController);
 
-    homepageController.$injector=['$scope','$state','$http','$q','loginServices'];
-    function homepageController($scope,$state,$http,$q,loginServices){
+    homepageController.$injector=['$scope','$state','$http','$q','loginServices','$filter'];
+    function homepageController($scope,$state,$http,$q,loginServices,$filter){
         loginServices.islogin();
         $scope.left_menu='';
         $scope.clickLink=function(data){
-            console.log(data);
             $scope.left_menu=data;
 
         },
@@ -39,10 +38,18 @@
             content:''
         };
         loginServices.getTodos().then(function(data){
-           $scope.todos=data;
-            console.log($scope.todos);
+                $scope.todos=data;
+                $scope.remainingCount = $filter('filter')($scope.todos, { completed: false }).length;
+                $scope.completedCount = $scope.todos.length - $scope.remainingCount;
         });
 
+
+        $scope.changeStatus= function (data) {
+            console.log(data);
+            var status = $scope.status=data;
+            $scope.statusFilter =  (status === 'planed') ?
+            { completed: false } :(status === 'completed') ? { completed: true } : {};
+        },
         $scope.createTodo=function(){
             var d=$q.defer();
             $http.post('/createTodo',$scope.newTodo)
@@ -67,6 +74,24 @@
                 });
             return d.promise;
         };
-        }
+        $scope.toggleCompleted = function (todo) {
+            var todo=todo;
+            console.log(todo);
+            $scope.remainingCount = $filter('filter')($scope.todos, { completed: false }).length;
+            $scope.completedCount = $scope.todos.length - $scope.remainingCount;
+
+            return $q(function(resolve,reject){
+                $http.post('/completeTodo',todo)
+                    .success(function(data,status){
+                        resolve(data);
+                    })
+                    .error(function(data,status){
+                        reject(data);
+                    });
+            });
+
+        };
+
+    }
 
 })();
