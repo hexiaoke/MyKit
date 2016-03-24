@@ -2,9 +2,9 @@
     <ul id="todo-list">
         <li ng-repeat="todo in todos | filter:statusFilter track by $index" ng-class="{completed: todo.completed}">
             <div class="view">
-                <input class="toggle" type="checkbox" ng-model="todo.completed" ng-click="toggleCompleted(todo)>
+                <input class="toggle" type="checkbox" ng-model="todo.completed" ng-click="toggleCompleted(todo)">
                 <label >{{todo.title}}</label>
-                <a class="destroy" ng-click="TC.removeItem($index)"></a>
+                <a class="destroy"></a>
             </div>
         </li>
     </ul>
