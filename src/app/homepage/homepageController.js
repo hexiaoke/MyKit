@@ -38,12 +38,20 @@
             title:'',
             content:''
         };
+        loginServices.getTodos().then(function(data){
+           $scope.todos=data;
+            console.log($scope.todos);
+        });
+
         $scope.createTodo=function(){
             var d=$q.defer();
             $http.post('/createTodo',$scope.newTodo)
                 .success(function(data,status){
                     if(data ==='ok') {
-                        console.log('front ok');
+                        loginServices.getTodos().then(function(data){
+                            $scope.todos=data;
+                            console.log($scope.todos);
+                        });
                         $scope.newTodo={
                             title:'',
                             content:''

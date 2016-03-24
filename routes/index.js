@@ -57,19 +57,28 @@ var router=function(app){
   });
   app.get('/islogin',function(req, res) {
     var user = req.session.user;
-
     if (user) {
-      return res.send('ok');
+      return res.sendStatus(200)
     }
     else {
       return res.send('no');
     }
 
   });
+  app.get('/getTodos',function(req,res){
+    var id=req.session.user._id;
+    Todo.find({user_id:id},function(err,docs){
+      if(docs){
+        res.send(docs);
+      }
+      else {
+        res.send('nothing');
+      }
+    });
+  });
   app.get('/logout', function(req, res) {
     delete req.session.user;
     //delete app.locals.user
-
     res.send('ok');
   });
   app.post('/createTodo',function(req,res){

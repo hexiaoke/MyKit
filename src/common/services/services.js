@@ -10,28 +10,37 @@
     function loginServices($http,$q,$state){
         //待解决的问题
         return {
-            islogin:function(){
-            var d=$q.defer();
-            $http.get('/islogin')
-                .success(function(data,status){
-                    //回头改为响应码
-                    if(data ==='ok') {
-                        console.log('front ok');
-                        //$state.go('index.mykit.register');
-                        $state.go('index.user.welcome');
-                        //$location.path('/index/mykit/register');
-                    }
-                    if(data ==='no') {
-                        console.log('front no');
-                        $state.go('index.mykit.login');
-                    }
-                    d.resolve(data);
-                })
-                .error(function(data,status){
-                    d.reject(data);
+            islogin: function(){
+                return $q(function(resolve, reject) {
+                    $http.get('/islogin')
+                        .success(function(data, status){
+                            //回头改为响应码
+                            if(status === 200) {
+                                //$state.go('index.mykit.register');
+                                $state.go('index.user.welcome');
+                                //$location.path('/index/mykit/register');
+                            }
+                            if(data ==='no') {
+                                $state.go('index.mykit.login');
+                            }
+                            resolve(data);
+                        })
+                        .error(function(data,status){
+                            reject(data);
+                        });
                 });
-            return d.promise;
-        },
+            },
+            getTodos:function(){
+                return $q(function(resolve,reject){
+                    $http.get('/getTodos')
+                        .success(function(data,status){
+                            resolve(data);
+                        })
+                        .error(function(data,status){
+                            reject(data);
+                        });
+                });
+            }
         }
 
 

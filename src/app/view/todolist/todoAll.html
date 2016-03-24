@@ -1,32 +1,11 @@
 <section id="todo-main">
     <ul id="todo-list">
-        <li >
+        <li ng-repeat="todo in todos">
             <div class="view">
                 <input class="toggle" type="checkbox">
-                <label ng-dblclick="TC.editItem(item)">123</label>
+                <label >{{todo.title}}</label>
                 <a class="destroy" ng-click="TC.removeItem($index)"></a>
             </div>
         </li>
-        <li >
-            <div class="view">
-                <input class="toggle" type="checkbox">
-                <label ng-dblclick="TC.editItem(item)">123</label>
-                <a class="destroy" ng-click="TC.removeItem($index)"></a>
-            </div>
-        </li>
-        <li >
-            <div class="view">
-                <input class="toggle" type="checkbox" >
-                <label ng-dblclick="TC.editItem(item)">123</label>
-                <a class="destroy" ng-click="TC.removeItem($index)"></a>
-            </div>
-        </li><li >
-        <div class="view">
-            <input class="toggle" type="checkbox">
-            <label ng-dblclick="TC.editItem(item)">123</label>
-            <a class="destroy" ng-click="TC.removeItem($index)"></a>
-        </div>
-    </li>
-
     </ul>
 </section>
