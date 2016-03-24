@@ -1,5 +1,5 @@
 # MyKit
-MyKit by MANE
+MyKit by MANE（angular+express4+mongoose+node.js）
 
 #### 运行条件
 
