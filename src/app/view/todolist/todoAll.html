@@ -1,9 +1,9 @@
-<section id="todo-main">
-    <ul id="todo-list">
+<section class="todo-main">
+    <ul class="todo-list">
         <li ng-repeat="todo in todos" ng-class="{completed: todo.completed}">
             <div class="view">
                 <input class="toggle" type="checkbox" ng-model="todo.completed" ng-click="toggleCompleted(todo)">
-                <label >{{todo.title}}</label>
+                <label >{{todo.title}}<span>{{todo.content}}</span></label>
                 <a class="destroy"></a>
             </div>
         </li>

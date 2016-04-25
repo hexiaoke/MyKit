@@ -18,13 +18,11 @@
                 $http.post('/login',$scope.user)
                     .success(function(data,status){
                         if(data =='ok') {
-                            console.log('front ok');
                             //$state.go('index.mykit.register');
                             $state.go('index.user.welcome');
                             //$location.path('/index/mykit/register');
                         }
                         if(data =='no') {
-                            console.log('front no');
                             $state.go('index.mykit.register');
                         }
                         d.resolve(data);

@@ -42,8 +42,6 @@
                 $scope.remainingCount = $filter('filter')($scope.todos, { completed: false }).length;
                 $scope.completedCount = $scope.todos.length - $scope.remainingCount;
         });
-
-
         $scope.changeStatus= function (data) {
             console.log(data);
             var status = $scope.status=data;
@@ -76,10 +74,8 @@
         };
         $scope.toggleCompleted = function (todo) {
             var todo=todo;
-            console.log(todo);
             $scope.remainingCount = $filter('filter')($scope.todos, { completed: false }).length;
             $scope.completedCount = $scope.todos.length - $scope.remainingCount;
-
             return $q(function(resolve,reject){
                 $http.post('/completeTodo',todo)
                     .success(function(data,status){

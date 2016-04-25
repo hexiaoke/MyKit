@@ -101,9 +101,6 @@
                 });
 
             $urlRouterProvider.when('','/mykit/login');
-            $urlRouterProvider.when('/todolist', [function() {
-                console.log('user/todolist')
-            }]);
 
 
         }]);
