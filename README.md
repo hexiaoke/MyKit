@@ -1,14 +1,12 @@
 # MyKit
-MyKit by MANE
+MyKit by MANE（angular+express4+mongoose+node.js）
 
 #### 运行条件
 
 node5.0+,mongodb
+前端由angular.js配合bootstrap构成
+后端由node.js的环境加上express4+mongodb（由mongoose驱动）构成
 
-css的书写顺序还没来得及优化，待主页开发UI时一同优化
-#### 运行条件
-
-node5.0+、mongodb
 
 
 ``` bash
