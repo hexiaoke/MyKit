@@ -4,7 +4,7 @@
 (function(){
     'use strict';
     angular
-        .module('MyKit',['ui.router','MyKit.register','MyKit.login','MyKit.homepage','MyKit.services'])
+        .module('MyKit',['ui.router','MyKit.register','MyKit.login','MyKit.homepage','MyKit.services','MyKit.dropdown'])
         .config(['$stateProvider', '$urlRouterProvider',function($stateProvider,$urlRouterProvider){
             $stateProvider
                 .state('index',{

@@ -10,7 +10,6 @@ var router=function(app){
       if (err) {
         console.log(err)
       }
-
       if (user) {
       res.send('same');
       }
@@ -103,6 +102,30 @@ var router=function(app){
    });
 
  });
+  app.post('/updateTodo',function(req,res){
+    var todo=req.body;
+    Todo.update({_id:todo._id},todo,function(err){
+      if (err){
+        console.log(err);
+      }
+      else {
+        res.send('ok');
+      }
+    });
+
+  });
+  app.post('/deleteTodo',function(req,res){
+    var todo=req.body;
+    Todo.remove({_id:todo._id},function(err){
+      if (err){
+        console.log(err);
+      }
+      else {
+        res.send('ok');
+      }
+    });
+
+  });
 };
 
 

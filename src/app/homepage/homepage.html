@@ -8,10 +8,16 @@
         </div>
         <h2 class="logo-name">MyKit</h2>
         <span class="vertical-line"></span>
-        <a class="btn  btn-rounded menu-login menu-btn" ng-click="logout()">登出</a>
+        <div class="search-input">
+            <div class="search-icon">
+                <i class=" icon-search"></i>
+            </div>
+            <input type="text" placeholder="输入关键词">
+        </div>
+        <dropdown class="dropdown" ng-click="dropdown($event)"></dropdown>
     </div>
     <div class="siderbar" id="context-menu">
-        <a class="menu-item">头像</a>
+        <a class="avtor"><img  src="../assets/images/hk.jpg"></a>
         <a class="menu-item" ui-sref='index.user.todolist.all' ng-click="clickLink('all')" ng-class="{active: left_menu === 'all'}">
             <i class=" icon-list-alt icon-large"></i>
     <span class="menu-title">
@@ -39,4 +45,12 @@
     </div>
     <div ui-view id="container"></div>
 </div>
-<div id="mask-wrap"></div>
+<div id="mask-wrap" ng-click="closeMask()">
+    <form class="create-form" id="edit-todo">
+        <h1 class="create-form-title">编辑你的事项</h1>
+        <hr>
+        <input class="todos-create-title" placeholder="事项名称" ng-model="editTodo.title">
+        <textarea placeholder="事项内容(其他选项待定)" class="todos-create-content" ng-model="editTodo.content"></textarea>
+        <button class="btn btn-success btn-rounded finish-create" ng-click="updateTodo(editTodo)">完成编辑</button>
+    </form>
+</div>

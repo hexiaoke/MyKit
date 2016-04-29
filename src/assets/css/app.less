@@ -45,7 +45,7 @@ html,body{
 }
 .right-menu{
   .menu;
-  fight:0;
+  right:0;
 }
 .menu-register{
   text-decoration: none;
@@ -64,7 +64,7 @@ html,body{
 .vertical-line {
   position: absolute;
   top: 0;
-  right: (@length*10.5);
+  right: (@length*13.25);
   margin-top: (@margin-length*2);
   height: @length;
   border-left: 1px solid rgba(0, 0, 0, 0.2);
@@ -80,9 +80,42 @@ html,body{
   position: absolute;
   top: 50%;
   margin-top: -(@margin-length*2);
-  right:  (@length*10.75);
+  right:  (@length*14);
   height:  (@length*2);
 }
+.search-input{
+  display: inline-block;
+  position: absolute;
+  padding: 0 10px;
+  top:50%;
+  margin-top: -14px;
+  right: 60px;
+  width: 190px;
+  height: 28px;
+  line-height: 28px;
+  vertical-align: middle;
+  border:1px solid rgba(0,0,0,0.2);
+  border-radius: 5px;
+  input{
+    padding: 0;
+    display: block;
+    width:120px ;
+    height: 26px;
+    line-height: 26px;
+    font-size: 12px;
+    border: 0;
+    outline: none;
+  }
+}
+.search-icon{
+  display: inline-block;
+  float: left;
+  margin-right: 15px;
+  height: 26px;
+  line-height: 26px;
+  color: #b1b1b1;
+}
+
 /*应用暂时不做屏幕宽度低于480px的响应式处理*/
 .login{
   .index-form(480px,380px);
@@ -165,6 +198,34 @@ span.error:before {
   border-right-color: #d95c5c;
   border-width: 5px;
   margin-top: -5px;}
+.dropdown{
+  position: absolute;
+  width: 60px;
+  right: 0;
+  color: #000;
+  cursor: pointer;
+  a{
+    color: #000000;
+  }
+}
+.header-dropdown{
+  padding: 0 ;
+  display: block;
+  top:48px;
+  left: auto;
+  right: -20px;
+  background: #fff;
+  border-top: 0;
+  li{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15); ;
+  }
+  .last{
+    border-bottom: 0;
+  }
+  i{
+    margin-right: 10px;
+  }
+}
 
 /* homepage */
 #context-menu{
@@ -194,6 +255,32 @@ span.error:before {
       line-height: 20px;
     }
 
+  }
+  .avtor{
+    display:block;
+    padding:10px 5px 0 ;
+    height: 80px;
+    color: #fff;
+    text-align: center;
+    img{
+      display: block;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      -webkit-transition: all 1.85s ease-in-out;
+      -moz-transition: all 1.85s ease-in-out;
+      transition: all 1.85s ease-in-out
+
+    }
+    &:hover{
+      img{
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        transform: rotate(180deg)
+      }
+    }
   }
   .active{
     background-color: rgba(255,255,255,.15);
@@ -331,20 +418,30 @@ hr{
 .todo-main {
   position: relative;
   z-index: 2;
-  border-top: 1px solid #e6e6e6;
 }
-
+.todo-main-title{
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  h1{
+    font-size: 18px;
+  }
+}
 .todo-list {
-  margin: 0;
+  margin: 0 10px;
   padding: 0;
   list-style: none;
 }
 
 .todo-list li {
   position: relative;
-  font-size: 24px;
+  font-size: 18px;
   background: #fff;
   border-bottom: 1px solid #ededed;
+  &:hover{
+    i{
+      display: block;
+    }
+  }
 }
 
 .todo-list li:last-child {
@@ -392,7 +489,8 @@ hr{
   word-break: break-all;
   padding: 15px 60px 15px 15px;
   margin-left: 45px;
-  display: block;
+  display: inline-block;
+  vertical-align: middle;
   transition: color 0.4s;
 }
 .todo-list li span{
@@ -402,6 +500,7 @@ hr{
   height: 17px;
   font-size: 12px;
   white-space: nowrap;
+  vertical-align: middle;
   color: #666;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -413,34 +512,36 @@ hr{
 .todo-list li.completed span{
   display: none;
 }
-
-.todo-list li .destroy {
+.todo-list li.completed :hover{
+  i{
+    display: none;
+  }
+  .destroy{
+    display: block;
+  }
+}
+.todo-list li i{
   display: none;
   position: absolute;
   top: 50%;
-  right: 10px;
-  margin-top: -20px;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
+  right: 50px;
+  margin-top: -10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  line-height: 20px;
   vertical-align: top;
   color: #cc9a9a;
   background: none;
-  font-size: 30px;
   border: 0;
   transition: color 0.2s ease-out;
 }
 
-.todo-list li .destroy:hover {
+.todo-list li i:hover {
   color: #af5b5e;
 }
-
-.todo-list li .destroy:after {
-  content: '×';
-}
-
-.todo-list li:hover .destroy {
-  display: block;
+.todo-list li .destroy{
+  right: 10px;
 }
 
 #mask-wrap{
@@ -452,4 +553,10 @@ hr{
   height: 100%;
   background: #000;
   opacity: 0.8;
+}
+#edit-todo{
+  position: absolute;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%,-50%);
 }
