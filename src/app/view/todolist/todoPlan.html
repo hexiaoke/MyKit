@@ -6,7 +6,7 @@
         <li ng-repeat="todo in todos | filter:statusFilter track by $index" ng-class="{completed: todo.completed}">
             <div class="view">
                 <input class="toggle" type="checkbox" ng-model="todo.completed" ng-click="toggleCompleted(todo)">
-                <label >{{todo.title}}<span>{{todo.content}}</span></label>
+                <label >{{todo.title}}<span title="{{todo.content}}">{{todo.content}}</span></label>
                 <i class=" icon-pencil" ng-click="enterEdit(todo)"></i>
                 <i class="destroy  icon-trash" ng-click="deleteTodo(todo)"></i>
             </div>

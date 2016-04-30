@@ -45,8 +45,9 @@
     </div>
     <div ui-view id="container"></div>
 </div>
-<div id="mask-wrap" ng-click="closeMask()">
-    <form class="create-form" id="edit-todo">
+<div id="mask-wrap" ng-click="closeMask($event)">
+    <form class="create-form" id="edit-todo" ng-click="stopProgation($event)">
+        <i class=" icon-remove icon-large icon"ng-click="closeMask($event)"></i>
         <h1 class="create-form-title">编辑你的事项</h1>
         <hr>
         <input class="todos-create-title" placeholder="事项名称" ng-model="editTodo.title">

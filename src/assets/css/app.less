@@ -552,9 +552,19 @@ hr{
   width: 100%;
   height: 100%;
   background: #000;
-  opacity: 0.8;
+  opacity: 0.7;
+  .icon{
+    position: absolute;
+    right: -20px;
+    top:-20px;
+    color: grey;
+    &:hover{
+      color: #fff;
+    }
+  }
 }
 #edit-todo{
+  z-index: 1000;
   position: absolute;
   left: 50%;
   top:50%;

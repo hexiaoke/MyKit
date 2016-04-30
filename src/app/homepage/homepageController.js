@@ -96,8 +96,9 @@
                     });
             });
         };
-        $scope.closeMask=function(){
+        $scope.closeMask=function(event){
             maskWrap.style.display='none';
+            event.stopPropagation();
         };
         $scope.createTodo=function(){
             var d=$q.defer();
@@ -137,6 +138,15 @@
                     });
             });
 
+        };
+        //阻止事件冒泡
+        $scope.stopProgation=function(e){
+            if (e && e.stopPropagation) {//非IE浏览器
+                e.stopPropagation();
+            }
+            else {//IE浏览器
+                window.event.cancelBubble = true;
+            }
         };
 
     }
