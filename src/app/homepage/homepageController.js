@@ -12,7 +12,6 @@
         loginServices.islogin();
         loginServices.getUser().then(function(data){
          $scope.user=data;
-            console.log($scope.user);
         });
         $scope.left_menu='';
         $scope.clickLink=function(data){
