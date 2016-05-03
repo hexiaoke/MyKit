@@ -66,6 +66,24 @@ var router=function(app){
     }
 
   });
+  app.get('/getUser',function(req, res) {
+    var id = req.session.user._id;
+    User.findOne({_id: id}, function (err, user) {
+      if (err) {
+        console.log(err);
+      }
+
+      if (!user) {
+        console.log('end no user');
+        return res.send('no');
+      }
+      else{
+        console.log(user);
+        return res.send(user);
+      }
+    });
+
+  });
   app.get('/logout', function(req, res) {
     delete req.session.user;
     //delete app.locals.user

@@ -10,6 +10,10 @@
     homepageController.$injector=['$scope','$state','$http','$q','loginServices','$filter'];
     function homepageController($scope,$state,$http,$q,loginServices,$filter){
         loginServices.islogin();
+        loginServices.getUser().then(function(data){
+         $scope.user=data;
+            console.log($scope.user);
+        });
         $scope.left_menu='';
         $scope.clickLink=function(data){
             $scope.left_menu=data;
@@ -63,30 +67,6 @@
             $scope.todoIndex=$scope.todos.indexOf(todo);
             maskWrap.style.display='block';
             editTodos.style.display='block';
-        };
-        $scope.updateFriend=function(friend){
-            var friend=friend;
-            $scope.friends[$scope.friendIndex]=angular.copy(friend);
-            $scope.editFriend={
-                name:'',
-                birth:'',
-                tel:'',
-                email:'',
-                address:'',
-                remarks:''
-            };
-            $scope.friendIndex=0;
-            editFriends.style.display='none';
-            maskWrap.style.display='none';
-            return $q(function(resolve,reject){
-                $http.post('/updateFriend',friend)
-                    .success(function(data,status){
-                        resolve(data);
-                    })
-                    .error(function(data,status){
-                        reject(data);
-                    });
-            });
         };
 
         $scope.updateTodo=function(todo){
@@ -250,6 +230,30 @@
            $scope.friendIndex=0;
             return $q(function(resolve,reject){
                 $http.post('/deleteFriend',friend)
+                    .success(function(data,status){
+                        resolve(data);
+                    })
+                    .error(function(data,status){
+                        reject(data);
+                    });
+            });
+        };
+        $scope.updateFriend=function(friend){
+            var friend=friend;
+            $scope.friends[$scope.friendIndex]=angular.copy(friend);
+            $scope.editFriend={
+                name:'',
+                birth:'',
+                tel:'',
+                email:'',
+                address:'',
+                remarks:''
+            };
+            $scope.friendIndex=0;
+            editFriends.style.display='none';
+            maskWrap.style.display='none';
+            return $q(function(resolve,reject){
+                $http.post('/updateFriend',friend)
                     .success(function(data,status){
                         resolve(data);
                     })

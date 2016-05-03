@@ -438,6 +438,9 @@ hr {
 .create-form .remark {
   margin-left: 10px;
 }
+.create-form .make-alter {
+  margin-left: 10px;
+}
 .create-form-title {
   margin: 10px 0;
   padding: 0;
@@ -719,6 +722,17 @@ hr {
   width: 80px;
   font-size: 12px;
   height: 30px;
+}
+.alter-password {
+  display: block;
+  padding: 10px 16px;
+  margin: 20px 10px;
+  width: 600px;
+  height: 40px;
+  outline: 0;
+  color: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
 }
 #mask-wrap {
   position: absolute;

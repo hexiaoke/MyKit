@@ -1,1 +1,17 @@
-account
+<div class="inner-menu">
+    <header class="item-title">
+        账户信息
+        <article>包括用户个人信息及信息的修改和设置</article>
+    </header>
+    <a class="inner-item" ui-sref='index.user.account.detail' ui-sref-active="active" >
+        <i class="  icon-user icon-large" ></i>
+        <span>个人基本资料设置</span>
+    </a>
+    <a class="inner-item" ui-sref='index.user.account.password' ui-sref-active="active">
+        <i class="  icon-lock icon-large"></i>
+        <span>修改密码</span>
+    </a>
+</div>
+<div class="inner-container">
+    <div ui-view></div>
+</div>

@@ -98,6 +98,14 @@
                 .state('index.user.account',{
                     url:'/account',
                     templateUrl:'app/view/account/account.html'
+                })
+                .state('index.user.account.detail',{
+                    url:'/detail',
+                    templateUrl:'app/view/account/accountDetail.html'
+                })
+                .state('index.user.account.password',{
+                    url:'/alterPassword',
+                    templateUrl:'app/view/account/accountPassword.html'
                 });
 
             $urlRouterProvider.when('','/mykit/login');

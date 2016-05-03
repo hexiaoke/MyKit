@@ -41,6 +41,17 @@
                         });
                 });
             },
+            getUser: function(){
+                    return $q(function(resolve,reject){
+                        $http.get('/getUser')
+                            .success(function(data,status){
+                                resolve(data);
+                            })
+                            .error(function(data,status){
+                                reject(data);
+                            });
+                    });
+                },
             getFriends:function(){
                 return $q(function(resolve,reject){
                     $http.get('/getFriends')
