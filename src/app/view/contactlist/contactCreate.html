@@ -1,1 +1,30 @@
-create
+<form id="contact-create-form" class="create-form">
+    <h1 class="create-form-title">添加好友</h1>
+    <hr>
+    <div class="create-avatar">
+        <!--上传头像功能并没有写-->
+        <img  src="../assets/images/hk.jpg">
+        <input type="file">
+        <button class="btn btn-default btn-rounded upload-avatar">上传头像</button>
+    </div>
+    <div class="base-info">
+        <label>姓名:</label><input class="friend-name" placeholder="姓名"  ng-model="newFriend.name">
+    </div>
+    <div class="base-info">
+        <label>生日:</label><input class="friend-birth" placeholder="生日" ng-model="newFriend.birth">
+    </div>
+    <div class="base-info">
+        <label>电话:</label><input class="friend-tel" placeholder="电话" ng-model="newFriend.tel">
+    </div>
+    <div class="base-info">
+        <label>邮件:</label><input class="friend-email" placeholder="邮件" ng-model="newFriend.email" >
+    </div>
+    <div class="base-info">
+        <label>地址:</label><input class="friend-email" placeholder="地址" ng-model="newFriend.address">
+    </div>
+    <div class="remark">
+        <label>备注:</label>
+        <textarea class="friend-remark" placeholder="备注信息" ng-model="newFriend.remarks"></textarea>
+    </div>
+    <button class="btn btn-success btn-rounded finish-create add-friend" ng-click="addFriends()">完成添加</button>
+</form>

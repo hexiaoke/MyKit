@@ -46,7 +46,7 @@
     <div ui-view id="container"></div>
 </div>
 <div id="mask-wrap" ng-click="closeMask($event)">
-    <form class="create-form" id="edit-todo" ng-click="stopProgation($event)">
+    <form class="create-form" id="edit-todo" ng-click="stopProgation($event)" >
         <i class=" icon-remove icon-large icon"ng-click="closeMask($event)"></i>
         <h1 class="create-form-title">编辑你的事项</h1>
         <hr>
@@ -54,4 +54,63 @@
         <textarea placeholder="事项内容(其他选项待定)" class="todos-create-content" ng-model="editTodo.content"></textarea>
         <button class="btn btn-success btn-rounded finish-create" ng-click="updateTodo(editTodo)">完成编辑</button>
     </form>
+    <form id="edit-contact" class="create-form" ng-click="stopProgation($event)">
+        <i class=" icon-remove icon-large icon"ng-click="closeMask($event)"></i>
+        <h1 class="create-form-title">修改好友信息</h1>
+        <hr>
+        <div class="create-avatar">
+            <!--上传头像功能并没有写-->
+            <img  src="../assets/images/hk.jpg">
+            <input type="file">
+            <button class="btn btn-default btn-rounded upload-avatar">上传头像</button>
+        </div>
+        <div class="base-info">
+            <label>姓名:</label><input class="friend-name" placeholder="姓名"  ng-model="editFriend.name">
+        </div>
+        <div class="base-info">
+            <label>生日:</label><input class="friend-birth" placeholder="生日" ng-model="editFriend.birth">
+        </div>
+        <div class="base-info">
+            <label>电话:</label><input class="friend-tel" placeholder="电话" ng-model="editFriend.tel">
+        </div>
+        <div class="base-info">
+            <label>邮件:</label><input class="friend-email" placeholder="邮件" ng-model="editFriend.email" >
+        </div>
+        <div class="base-info">
+            <label>地址:</label><input class="friend-email" placeholder="地址" ng-model="editFriend.address">
+        </div>
+        <div class="remark">
+            <label>备注:</label>
+            <textarea class="friend-remark" placeholder="备注信息" ng-model="editFriend.remarks"></textarea>
+        </div>
+        <button class="btn btn-success btn-rounded finish-create add-friend" ng-click="updateFriend(editFriend)">完成修改</button>
+    </form>
+    <form id="contact-detail" class="create-form" ng-click="stopProgation($event)">
+        <i class=" icon-remove icon-large icon"ng-click="closeMask($event)"></i>
+        <h1 class="create-form-title">修改好友信息</h1>
+        <hr>
+        <div class="create-avatar">
+            <!--上传头像功能并没有写-->
+            <img  src="../assets/images/hk.jpg">
+        </div>
+        <div class="base-info">
+            <label>姓名:</label><input class="friend-name" placeholder="姓名"  ng-model="editFriend.name" disabled="true">
+        </div>
+        <div class="base-info">
+            <label>生日:</label><input class="friend-birth" placeholder="生日" ng-model="editFriend.birth" disabled="true">
+        </div>
+        <div class="base-info">
+            <label>电话:</label><input class="friend-tel" placeholder="电话" ng-model="editFriend.tel" disabled="true">
+        </div>
+        <div class="base-info">
+            <label>邮件:</label><input class="friend-email" placeholder="邮件" ng-model="editFriend.email" disabled="true">
+        </div>
+        <div class="base-info">
+            <label>地址:</label><input class="friend-email" placeholder="地址" ng-model="editFriend.address" disabled="true">
+        </div>
+        <div class="remark">
+            <label>备注:</label>
+            <textarea class="friend-remark" placeholder="备注信息" ng-model="editFriend.remarks" disabled="true"></textarea>
+        </div>
+ </form>
 </div>

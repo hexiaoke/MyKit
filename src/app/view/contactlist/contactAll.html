@@ -1,1 +1,31 @@
-all
+<section class="contact-main">
+    <div class="contact-main-title">
+        <h1>好友名片</h1>
+    </div>
+    <div class="friends">
+        <div class="friend" ng-repeat="friend in friends">
+            <div class="friend-avatar">
+                <i class="icon-github-alt icon-3x "></i>
+            </div>
+            <div class="friend-info">
+                <span class="name">{{friend.name}}</span>
+                <span class="tel">Info:{{friend.tel}}</span>
+                <span class="email">| {{friend.email}}</span>
+            </div>
+            <div class="friend-handle">
+                <a ng-click="attentionFriend(friend)" ng-model="friend.attention">
+                    <i class="  icon-large" ng-class="{true: 'icon-heart', false: 'icon-heart-empty'}[friend.attention]"></i>
+                    <span>特别关注</span>
+                </a>
+                <a ng-click="detailFriend(friend)">  <i class=" icon-exclamation-sign icon-large"></i>
+                    <span>详情</span></a>
+                <a ng-click="enterFriend(friend)">  <i class=" icon-pencil icon-large"></i>
+                    <span>编辑</span></a>
+                <a ng-click="deleteFriend(friend)">
+                    <i class=" icon-trash icon-large delete"></i>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</section>

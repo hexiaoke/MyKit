@@ -50,15 +50,45 @@
         });
         $scope.changeStatus= function (data) {
             var status = $scope.status=data;
+            console.log($scope.status);
             $scope.statusFilter =  (status === 'planed') ?
             { completed: false } :(status === 'completed') ? { completed: true } : {};
         };
          var maskWrap=document.getElementById('mask-wrap');
+         var editTodos=document.getElementById('edit-todo');
+        var editFriends=document.getElementById('edit-contact');
+        var detailFriends=document.getElementById('contact-detail');
         $scope.enterEdit=function(todo){
             $scope.editTodo=angular.copy(todo);
             $scope.todoIndex=$scope.todos.indexOf(todo);
             maskWrap.style.display='block';
+            editTodos.style.display='block';
         };
+        $scope.updateFriend=function(friend){
+            var friend=friend;
+            $scope.friends[$scope.friendIndex]=angular.copy(friend);
+            $scope.editFriend={
+                name:'',
+                birth:'',
+                tel:'',
+                email:'',
+                address:'',
+                remarks:''
+            };
+            $scope.friendIndex=0;
+            editFriends.style.display='none';
+            maskWrap.style.display='none';
+            return $q(function(resolve,reject){
+                $http.post('/updateFriend',friend)
+                    .success(function(data,status){
+                        resolve(data);
+                    })
+                    .error(function(data,status){
+                        reject(data);
+                    });
+            });
+        };
+
         $scope.updateTodo=function(todo){
             var todo=todo;
             $scope.todos[$scope.todoIndex]=angular.copy(todo);
@@ -67,6 +97,7 @@
                 content:''
             };
             $scope.todoIndex=0;
+            editTodos.style.display='none';
             maskWrap.style.display='none';
             return $q(function(resolve,reject){
                 $http.post('/updateTodo',todo)
@@ -97,6 +128,9 @@
             });
         };
         $scope.closeMask=function(event){
+            detailFriends.style.display='none';
+            editFriends.style.display='none';
+            editTodos.style.display='none';
             maskWrap.style.display='none';
             event.stopPropagation();
         };
@@ -148,6 +182,94 @@
                 window.event.cancelBubble = true;
             }
         };
+
+        //通讯录
+        $scope.newFriend={
+            name:'',
+            birth:'',
+            tel:'',
+            email:'',
+            address:'',
+            remarks:''
+        };
+        $scope.editFriend={
+            name:'',
+            birth:'',
+            tel:'',
+            email:'',
+            address:'',
+            remarks:''
+        };
+        loginServices.getFriends().then(function(data){
+            $scope.friends=data;
+            $scope.attentionCount = $filter('filter')($scope.friends, { attention: true }).length;
+        });
+        $scope.addFriends=function(){
+            return $q(function(resolve,reject){
+                $http.post('/addFriend',$scope.newFriend)
+                    .success(function(data,status){
+                        if(data==='ok'){
+                            loginServices.getFriends().then(function(data){
+                                $scope.friends=data;
+                            });
+                            $state.go('index.user.contactlist.all');
+                            $scope.newFriend={
+                                name:'',
+                                birth:'',
+                                tel:'',
+                                email:'',
+                                address:'',
+                                remarks:'',
+                            };
+                        }
+                        resolve(data);
+                    })
+                    .error(function (data,status) {
+                        reject(data);
+                    });
+            });
+        };
+        $scope.attentionFriend=function(friend){
+            friend.attention=!friend.attention;
+            $scope.attentionCount = $filter('filter')($scope.friends, { attention: true }).length;
+            return $q(function(resolve,reject){
+                $http.post('/attentionFriend',friend)
+                    .success(function(data,status){
+                        resolve(data);
+                    })
+                    .error(function(data,status){
+                        reject(data);
+                    });
+            });
+        };
+        $scope.deleteFriend=function(friend){
+            var friend=friend;
+            $scope.friendIndex=$scope.friends.indexOf(friend);
+            $scope.friends.splice( $scope.friendIndex,1);
+            $scope.attentionCount = $filter('filter')($scope.friends, { attention: true }).length;
+           $scope.friendIndex=0;
+            return $q(function(resolve,reject){
+                $http.post('/deleteFriend',friend)
+                    .success(function(data,status){
+                        resolve(data);
+                    })
+                    .error(function(data,status){
+                        reject(data);
+                    });
+            });
+        };
+        $scope.enterFriend=function(friend){
+            $scope.editFriend=angular.copy(friend);
+            $scope.friendIndex=$scope.friends.indexOf(friend);
+            maskWrap.style.display='block';
+            editFriends.style.display='block';
+        };
+        $scope.detailFriend=function(friend){
+            $scope.editFriend=angular.copy(friend);
+            maskWrap.style.display='block';
+           detailFriends.style.display='block';
+        }
+
 
     }
 

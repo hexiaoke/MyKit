@@ -40,7 +40,19 @@
                             reject(data);
                         });
                 });
+            },
+            getFriends:function(){
+                return $q(function(resolve,reject){
+                    $http.get('/getFriends')
+                        .success(function(data,status){
+                            resolve(data);
+                        })
+                        .error(function(data,status){
+                            reject(data);
+                        });
+                });
             }
+
         }
 
 

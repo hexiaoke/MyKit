@@ -6,12 +6,12 @@
     <a class="inner-item" ui-sref='index.user.contactlist.all' ui-sref-active="active" >
         <i class="  icon-group icon-large" ></i>
         <span>所有联系人</span>
-        <span>(0)</span>
+        <span>({{friends.length}})</span>
     </a>
     <a class="inner-item" ui-sref='index.user.contactlist.special' ui-sref-active="active">
         <i class=" icon-heart icon-large"></i>
         <span>特别关注</span>
-        <span>(0)</span>
+        <span>({{attentionCount}})</span>
     </a>
     <a class="inner-item" ui-sref='index.user.contactlist.create' ui-sref-active="active">
         <i class="  icon-edit icon-large"></i>
