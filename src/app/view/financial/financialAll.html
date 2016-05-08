@@ -1,1 +1,43 @@
-all
+<section class="financial-main">
+    <div class="financial-main-title">
+        <h1>财务总览</h1>
+    </div>
+    <div class="financial-view">
+        <highchart id="chart1" config="chartConfig" class="span9" ></highchart>
+    </div>
+    <div class="financial-view">
+        <div class="view-type">Default Type <select ng-model="chartConfig.options.chart.type" ng-options="t.id as t.title for t in chartTypes"></select></div>
+        <span class="info">
+            左边可以选择图表显示的类型如树形图和树状图,上方图表点击日期下的收入或者支出可单独显示.
+        </span>
+    </div>
+    <div class="financial-detail">
+        <table class="financial-table">
+            <thead>
+            <tr>
+                <th>收入:(单位:元)</th>
+                <th>支出:(单位:元)</th>
+                <th>日期</th>
+                <th>备注</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="data in datas">
+                <td>{{data.in}}</td>
+                <td>{{data.out}}</td>
+                <td>{{data.date}}</td>
+                <td>无</td>
+                <td><a class="financial-edit">  <i class=" icon-pencil icon-large"></i>
+                    <span>编辑</span></a>
+                    <a ng-click="deleteFinancial(data)" >
+                        <i class=" icon-trash icon-large delete"></i>
+                        <span>删除</span>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</section>

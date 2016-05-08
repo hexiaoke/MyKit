@@ -551,18 +551,18 @@ hr{
   right: 10px;
 }
 
-.contact-main{
+.contact-main,.financial-main{
   position: relative;
   z-index: 2;
 }
-.contact-main-title{
+.contact-main-title,.financial-main-title{
   margin-bottom: 20px;
   border-bottom: 1px solid rgba(0,0,0,.1);
   h1{
     font-size: 18px;
   }
 }
-.friends{
+.friends,.financial-view,.financial-detail{
   margin: 0 10px;
   padding: 0;
 }
@@ -697,6 +697,44 @@ hr{
   border: 1px solid rgba(0,0,0,.15);
   border-radius: 5px;
 }
+.financial-view{
+  margin-bottom: 20px;
+  .view-type{
+    font-size: 14px;
+    display: inline-block;
+  }
+  .info{
+    display: inline-block;
+    font-size: 14px;
+    color: #666;
+  }
+  select{
+    outline: none;
+  }
+}
+.financial-table{
+  margin-top: 20px;
+  margin-bottom: 50px;
+  width: 100%;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #eee;
+  thead{
+    border-bottom: 1px solid #eeeeee;
+  }
+  tr{
+    border-bottom: 1px solid #eeeeee;
+  }
+  tr:last-child {
+    border-bottom: none;
+  }
+  a{
+    cursor: pointer;
+  }
+}
+.financial-edit{
+  margin-right: 20px;
+}
 #mask-wrap{
   position: absolute;
   display: none;
@@ -743,3 +781,5 @@ hr{
     right: 150px;
   }
 }
+
+

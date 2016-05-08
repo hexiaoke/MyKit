@@ -590,18 +590,23 @@ hr {
 .todo-list li .destroy {
   right: 10px;
 }
-.contact-main {
+.contact-main,
+.financial-main {
   position: relative;
   z-index: 2;
 }
-.contact-main-title {
+.contact-main-title,
+.financial-main-title {
   margin-bottom: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-.contact-main-title h1 {
+.contact-main-title h1,
+.financial-main-title h1 {
   font-size: 18px;
 }
-.friends {
+.friends,
+.financial-view,
+.financial-detail {
   margin: 0 10px;
   padding: 0;
 }
@@ -733,6 +738,44 @@ hr {
   color: rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 5px;
+}
+.financial-view {
+  margin-bottom: 20px;
+}
+.financial-view .view-type {
+  font-size: 14px;
+  display: inline-block;
+}
+.financial-view .info {
+  display: inline-block;
+  font-size: 14px;
+  color: #666;
+}
+.financial-view select {
+  outline: none;
+}
+.financial-table {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  width: 100%;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #eee;
+}
+.financial-table thead {
+  border-bottom: 1px solid #eeeeee;
+}
+.financial-table tr {
+  border-bottom: 1px solid #eeeeee;
+}
+.financial-table tr:last-child {
+  border-bottom: none;
+}
+.financial-table a {
+  cursor: pointer;
+}
+.financial-edit {
+  margin-right: 20px;
 }
 #mask-wrap {
   position: absolute;
