@@ -87,14 +87,6 @@
                     url:'/create',
                     templateUrl:'app/view/financial/financialCreate.html'
                 })
-                .state('index.user.financial.in',{
-                    url:'/in',
-                    templateUrl:'app/view/financial/financialIn.html'
-                })
-                .state('index.user.financial.out',{
-                    url:'/out',
-                    templateUrl:'app/view/financial/financialOut.html'
-                })
                 .state('index.user.account',{
                     url:'/account',
                     templateUrl:'app/view/account/account.html'

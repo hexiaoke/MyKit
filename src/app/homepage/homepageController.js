@@ -274,28 +274,45 @@
         };
 
         //财务管理
+        $scope.newMoney={
+            in:'',
+            out:'',
+            date:'',
+            remark:'',
+            info:''
+        };
+        $scope.addMoney= function () {
+            return $q(function(resolve,reject){
+                $http.post('/addMoney',$scope.newMoney)
+                    .success(function(data,status){
+                        if(data==='ok'){
+                            loginServices.getMoney().then(function(data){
+                                $scope.moneys=data;
+                            });
+                            $scope.changeDatas();
+                            $state.go('index.user.financial.all');
+                            $scope.newMoney={
+                                in:'',
+                                out:'',
+                                date:'',
+                                remark:'',
+                                info:''
+                            };
+                        }
+                        resolve(data);
+                    })
+                    .error(function (data,status) {
+                        reject(data);
+                    });
+            });
+        };
         $scope.chartTypes = [
             {"id": "line", "title": "Line"},
             {"id": "area", "title": "Area"},
             {"id": "column", "title": "Column"},
             {"id": "bar", "title": "Bar"}
         ];
-        $scope.datas=[{ in:242,
-            out:123,
-            date:'2016-01-03'},{ in:342,
-            out:223,
-            date:'2016-01-04'},{ in:442,
-            out:323,
-            date:'2016-01-05'},{ in:542,
-            out:423,
-            date:'2016-01-06'},{ in:642,
-            out:523,
-            date:'2016-01-07'},{ in:742,
-            out:623,
-            date:'2016-01-08'},{ in:842,
-            out:723,
-            date:'2016-01-09'}];
-        $scope.chartConfig = {
+       $scope.chartConfig = {
             options: {
                 chart: {
                     type: 'area'
@@ -332,44 +349,41 @@
             },
 
         };
-        $scope.changeDatas= function () {
-            $scope.showIn=[];
-            $scope.showOut=[];
-            $scope.showDate=[];
-            $scope.showdata=[];
-            if($scope.datas.length>5){
-                $scope.showdata=$scope.datas.slice($scope.datas.length-5);
-                for(var i=0 ;i<$scope.showdata.length;i++){
-                    $scope.showIn.push($scope.showdata[i].in);
-                    $scope.showOut.push($scope.showdata[i].out);
-                    $scope.showDate.push($scope.showdata[i].date);
+        $scope.moneys=[];
+        loginServices.getMoney().then(function(data){
+            $scope.moneys=data;
+            console.log($scope.moneys);
+            $scope.changedatas();
+        });
+        $scope.changedatas=function(){
+            $scope.moneyIn=[];
+            $scope.moneyOut=[];
+            $scope.moneyDate=[];
+            if($scope.moneys.length>5){
+                $scope.showmoney=angular.copy($scope.moneys.slice($scope.moneys.length-5));
+                for(var i=0;i<$scope.showmoney.length;i++){
+                    $scope.moneyIn.push($scope.showmoney[i].in);
+                    $scope.moneyOut.push($scope.showmoney[i].out);
+                    $scope.moneyDate.push($scope.showmoney[i].date);
                 }
             }
             else {
-                $scope.showdata=$scope.datas;
-                for(var i=0 ;i<$scope.showdata.length;i++){
-                    $scope.showIn.push($scope.showdata[i].in);
-                    $scope.showOut.push($scope.showdata[i].out);
-                    $scope.showDate.push($scope.showdata[i].date);
+                $scope.showmoney=angular.copy($scope.moneys);
+                for(var i=0;i<$scope.showmoney.length;i++){
+                    $scope.moneyIn.push($scope.showmoney[i].in);
+                    $scope.moneyOut.push($scope.showmoney[i].out);
+                    $scope.moneyDate.push($scope.showmoney[i].date);
                 }
             }
-            $scope.chartConfig.series=[{
-                name:'收入',
-                data: $scope.showIn,
-                // one day
-            },{
-                name:'支出',
-                data: $scope.showOut,
-                // one day
-            }];
-            $scope.chartConfig.xAxis.categories= $scope.showDate;
+            $scope.chartConfig.series=[{name:'收入',data:$scope.moneyIn},{name:'支出',data:$scope.moneyOut}];
+            $scope.chartConfig.xAxis. categories=$scope.moneyDate;
+
         };
-        $scope.changeDatas();
         $scope.deleteFinancial=function(data){
             var data=data;
-            $scope.dataIndex=$scope.datas.indexOf(data);
-            $scope.datas.splice($scope.dataIndex,1);
-            $scope.changeDatas();
+            $scope.dataIndex=$scope.moneys.indexOf(data);
+            $scope.moneys.splice($scope.dataIndex,1);
+            $scope.changedatas();
         }
 
     }

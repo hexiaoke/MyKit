@@ -1,1 +1,21 @@
-create
+<form id="financial-create-form" class="create-form">
+    <h1 class="create-form-title">添加好友</h1>
+    <hr>
+    <div class="base-info">
+        <label>收入:</label><input class="friend-birth" placeholder="收入" ng-model="newMoney.in"><label> 元</label>
+    </div>
+    <div class="base-info">
+        <label>支出:</label><input class="friend-tel" placeholder="支出" ng-model="newMoney.out"><label> 元</label>
+    </div>
+    <div class="base-info">
+        <label>日期:</label><input class="friend-email" placeholder="日期" ng-model="newMoney.date" ><label> 请严格按照"YY-MM-DD"格式,如"2016-01-01"</label>
+    </div>
+    <div class="base-info">
+        <label>备注:</label><input class="friend-email" placeholder="备注" ng-model="newMoney.remark">
+    </div>
+    <div class="remark">
+        <label>收支说明:</label>
+        <textarea class="friend-remark" placeholder="收支说明" ng-model="newMoney.info"></textarea>
+    </div>
+    <button class="btn btn-success btn-rounded finish-create add-friend" ng-click="addMoney()">完成添加</button>
+</form>

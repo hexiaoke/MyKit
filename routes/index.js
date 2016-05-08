@@ -5,6 +5,8 @@ var TodoSchema=require('../schemas/todos');
 var Todo=mongoose.model('Todo',TodoSchema);
 var FriendSchema=require('../schemas/friend');
 var Friend=mongoose.model('Friend',FriendSchema);
+var MoneySchema=require('../schemas/money');
+var Money=mongoose.model('Money',MoneySchema);
 var router=function(app){
   app.post('/register', function (req, res) {
     var _user = req.body;
@@ -78,7 +80,6 @@ var router=function(app){
         return res.send('no');
       }
       else{
-        console.log(user);
         return res.send(user);
       }
     });
@@ -100,10 +101,32 @@ var router=function(app){
       }
     });
   });
+  app.get('/getMoney',function(req,res){
+    var id=req.session.user._id;
+    Money.find({user_id:id},null,{sort: ['sortDate']},function(err,docs){
+      if(docs){
+        res.send(docs);
+        console.log(docs);
+      }
+      else {
+        res.send('nothing');
+      }
+    });
+  });
   app.post('/createTodo',function(req,res){
     var todo=new Todo(req.body);
     todo.user_id=req.session.user._id;
     todo.save(function(err,user){
+      if(err){
+        console.log(err);
+      }
+    });
+    res.send('ok');
+  });
+  app.post('/addMoney',function(req,res){
+    var money=new Money(req.body);
+    money.user_id=req.session.user._id;
+    money.save(function(err){
       if(err){
         console.log(err);
       }
