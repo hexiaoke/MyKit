@@ -810,6 +810,14 @@ hr {
   transform: translate(-50%, -50%);
   background: #fff;
 }
+#edit-money {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+}
 #contact-detail {
   display: none;
   position: absolute;

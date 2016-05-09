@@ -61,6 +61,7 @@
          var editTodos=document.getElementById('edit-todo');
         var editFriends=document.getElementById('edit-contact');
         var detailFriends=document.getElementById('contact-detail');
+        var editMoney=document.getElementById('edit-money');
         $scope.enterEdit=function(todo){
             $scope.editTodo=angular.copy(todo);
             $scope.todoIndex=$scope.todos.indexOf(todo);
@@ -109,6 +110,7 @@
         $scope.closeMask=function(event){
             detailFriends.style.display='none';
             editFriends.style.display='none';
+            editMoney.style.display='none';
             editTodos.style.display='none';
             maskWrap.style.display='none';
             event.stopPropagation();
@@ -281,6 +283,13 @@
             remark:'',
             info:''
         };
+        $scope.editMoney={
+            in:'',
+            out:'',
+            date:'',
+            remark:'',
+            info:''
+        };
         $scope.addMoney= function () {
             return $q(function(resolve,reject){
                 $http.post('/addMoney',$scope.newMoney)
@@ -288,8 +297,8 @@
                         if(data==='ok'){
                             loginServices.getMoney().then(function(data){
                                 $scope.moneys=data;
+                                $scope.changedatas();
                             });
-                            $scope.changeDatas();
                             $state.go('index.user.financial.all');
                             $scope.newMoney={
                                 in:'',
@@ -352,9 +361,9 @@
         $scope.moneys=[];
         loginServices.getMoney().then(function(data){
             $scope.moneys=data;
-            console.log($scope.moneys);
             $scope.changedatas();
         });
+
         $scope.changedatas=function(){
             $scope.moneyIn=[];
             $scope.moneyOut=[];
@@ -379,11 +388,54 @@
             $scope.chartConfig.xAxis. categories=$scope.moneyDate;
 
         };
+        $scope.enterMoney=function(data){
+            $scope.editMoney=angular.copy(data);
+            $scope.dataIndex=$scope.moneys.indexOf(data);
+            maskWrap.style.display='block';
+            editMoney.style.display='block';
+        };
+        $scope.updateMoney=function(data){
+            var money=data;
+            return $q(function(resolve,reject){
+                $http.post('/updateMoney',money)
+                    .success(function(data,status){
+                        if(data==='ok'){
+                            loginServices.getMoney().then(function(data){
+                                $scope.moneys=data;
+                                $scope.changedatas();
+                            });
+                            $state.go('index.user.financial.all');
+                            $scope.editMoney={
+                                in:'',
+                                out:'',
+                                date:'',
+                                remark:'',
+                                info:''
+                            };
+                            editMoney.style.display='none';
+                            maskWrap.style.display='none';
+                        }
+                        resolve(data);
+                    })
+                    .error(function(data,status){
+                        reject(data);
+                    });
+            });
+        };
         $scope.deleteFinancial=function(data){
             var data=data;
             $scope.dataIndex=$scope.moneys.indexOf(data);
             $scope.moneys.splice($scope.dataIndex,1);
             $scope.changedatas();
+            return $q(function(resolve,reject){
+                $http.post('/deleteMoney',data)
+                    .success(function(data,status){
+                        resolve(data);
+                    })
+                    .error(function(data,status){
+                        reject(data);
+                    });
+            });
         }
 
     }

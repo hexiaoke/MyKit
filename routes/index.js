@@ -192,6 +192,30 @@ var router=function(app){
     });
 
   });
+  app.post('/updateMoney',function(req,res){
+    var money=req.body;
+    Money.update({_id:money._id},money,function(err){
+      if (err){
+        console.log(err);
+      }
+      else {
+        res.send('ok');
+      }
+    });
+
+  });
+  app.post('/deleteMoney',function(req,res){
+    var money=req.body;
+    Money.remove({_id:money._id},function(err){
+      if (err){
+        console.log(err);
+      }
+      else {
+        res.send('ok');
+      }
+    });
+
+  });
  app.post('/completeTodo',function(req,res){
    var todo=req.body;
    Todo.update({_id:todo._id},{$set:{completed:todo.completed}},function(err){
